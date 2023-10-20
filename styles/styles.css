@@ -5,6 +5,16 @@
     src: url(../fonts/Handmade.otf);
   }
 
+  @font-face {
+    font-family: 'Pokemon';
+    src: url(../fonts/PokemonSolid.ttf);
+  }
+
+  @font-face {
+    font-family: 'NextBro';
+    src: url(../fonts/TrashTalk.ttf);
+  }
+
 
 /* ___________________________________Estilos para barra de navegacion solicitada ___________________________________________________*/
 /* Con este estilo busco que los elementos, logo, nav(enlaces) y busqueda se dispongan de manera horizontal y en el formato space-between */
@@ -58,7 +68,7 @@ nav a:hover {
         background: #fff;
         border-radius: 25px;
         padding: 5px;
-        border-color: black;
+        border-color: #4682B4;
         border-style: solid;
     }
 
@@ -95,38 +105,7 @@ nav a:hover {
     transition: background-color 0.1s, color 0.5s, box-shadow 0.3s;
 }
 
-/* ___________________________________Estilos para el logo___________________________________________________*/
-
-/* el icono debe ocupar todo el espacio y se define duracion de animacion */
-.logo {
-    display: inline-block;
-    transition: transform 0.5s;
-    text-align: center;
-}
-
-.logo:hover {
-    background-color: rgba(255, 196, 0, 0.1);
-    box-shadow: 0 0 20px rgba(255, 196, 0, 0.3);
-}
-
-/* Estilo del texto "LF Designs" */
-.logo-text {
-    font-family: "handmade", Arial;
-    font-size: small; 
-    color: white;
-    margin-top: 5px;
-}
-
-/* se establece el tamaño del icono */
-.logo-icon {
-    width: 50px; 
-    height: 50px;
-}
-
-/* Aplico la rotacion programada "giro" al hacer hover en el logo */
-.logo-icon:hover {
-    animation: giro 3s linear infinite;
-}
+/* ___________________________________Animacion de rotacion___________________________________________________*/
 
 /* Define la animación de giro de 360 grados a la derecha */
 @keyframes giro {
@@ -167,7 +146,7 @@ nav a:hover {
     background-color: #FFFFFF; /* Color de fondo */
     margin-top: 30px;
     border-radius: 10px; /* Bordes redondeados */
-    border-color: black;
+    border-color: 4682B4;
     border-style: solid;
 }
 
@@ -194,36 +173,92 @@ nav a:hover {
     border-radius: 10px; /* Bordes redondeados */
 }
 
-/* ___________________________________Container Pokemon___________________________________________________*/
+/* ___________________________________Container Pokemon___________________________________________________ */
 .container-pokemon {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     width: 500px;
-    height: 600px;
-    background-color: #FFFFFF; /* Color de fondo */
+    height: 100%;
+    /* background-color: rgba(227, 215, 182, 0.7); Fondo con transparencia */
+    background-color: white;
     margin-top: 30px;
-    border-radius: 10px; /* Bordes redondeados */
-    border-color: black;
+    border-radius: 10px;
+    border-color: #4682B4; /* Borde azul */
     border-style: solid;
+    border-width: 2px; /* Ancho del borde */
+    overflow: hidden;
+    padding: 10px; /* Margen interno para separación */
 }
 
-.container-pokemon img{
-    margin: auto;
+/* Asegúrate de que todos los elementos de texto no se desborden */
+.container-pokemon p {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* white-space: nowrap; */
+}
+
+/* Limita el ancho de las imágenes */
+.container-pokemon img {
+    max-width: 50%;
+    height: auto;
+}
+
+/* Alinea el contenido en el centro de su contenedor */
+.container-pokemon .habilidades,
+.container-pokemon .stats,
+.container-pokemon .pokemon-name,
+.container-pokemon img {
+    text-align: center;
+}
+
+/* Estilo para el nombre del Pokémon */
+.pokemon-name {
+    color: #ffbf00; /* Color amarillo */
+    background-color: #4682B4;
+    font-family: "Pokemon", Arial;
+    font-size: xx-large; /* Tamaño del texto */
+    text-shadow: 2px 2px 2px #000; /* Sombra suave */
+    width: 100%; /* Ocupa todo el espacio horizontal */
+    line-height: 100px; /* Ajusta esto según el tamaño de tu contenedor */
+    border-radius: 30px;
+}
+
+
+/* Estilo para Habilidades */
+.habilidades {
+    width: 100%;
+    background-color: #ffe187;
+    font-size: large;
+    font-family: "NextBro", Arial;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 300px;
-    height: 300px;
+    /* background-color: #FFD700; Color amarillo (eléctrico) */
+    border: 2px solid #ffe187; /* Borde amarillo */
+    border-radius: 5px;
+    margin-top: 5px;
 }
 
-.pokemon-name {
-    position: absolute;
-    top: 0; /* Coloca el nombre en la parte superior del contenedor */
-    left: 0; /* Coloca el nombre en la esquina superior izquierda del contenedor */
-    background-color: rgba(255, 255, 255, 0.7); /* Fondo semitransparente */
-    padding: 5px; /* Espacio alrededor del nombre */
-    margin: 0; /* Elimina los márgenes predeterminados del nombre */
-    font-weight: bold; /* Texto en negrita */
-  }
+/* Estilo para Stats */
+.stats {
+    background-color: #ffe187;
+    font-size: large;
+    font-family: "NextBro", Arial;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    /* background-color: #68A090; Color verde (planta) */
+    border: 2px solid #f8d56d; /* Borde azul */
+    border-radius: 5px;
+    margin-top: 5px;
+    /* text-shadow: 1px 1px 1px #000; Sombra suave */
+}
+
+
+
+  
