@@ -1,0 +1,229 @@
+/* ___________________________________Importo fuentes personalizadas___________________________________________________*/
+/* Importo una fuente que descargue para estilizar la letra de mis enlaces*/
+@font-face {
+    font-family: 'Handmade';
+    src: url(../fonts/Handmade.otf);
+  }
+
+
+/* ___________________________________Estilos para barra de navegacion solicitada ___________________________________________________*/
+/* Con este estilo busco que los elementos, logo, nav(enlaces) y busqueda se dispongan de manera horizontal y en el formato space-between */
+body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFF8DC;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+/* ___________________________________Estilos para el nav___________________________________________________*/
+
+/* Con este estilo busco disponer la lista de enlaces horizontalmente ya que esta se orienta verticalmente por defecto  */
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 20;
+    padding: 0;
+}
+
+/* como los enlaces quedan pegados le aplico un margin a la derecha a cada elemento de la lista para lograr separacion entre ellos */
+nav li {
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+/* a cada elemento a o link del nav le quitare el subrayado, defino el color blaco y agrego una transicion para el hover la defino en 0.5s */
+nav a {
+    font-family: "Handmade", Arial;/*aplico la fuente customizada, sino es posible cargarla se aplicara el estilo Arial*/
+    font-size: xx-large;
+    text-decoration: none; 
+    color: white; 
+    font-weight: bold;
+    transition: color 1s;
+}
+
+/* Al pasar el mouse por encima de los enlaces los resalto de azul */
+nav a:hover {
+    color: #007bff;
+}
+
+
+/* ___________________________________Estilos para la caja de búsqueda, icono lupa y botón ___________________________________________________*/
+
+/* uso flex para la disposicion de los elementos ademas de redondear y definir color blanco para generar el efecto de que el boton y el cuadro de input estan en un mismo elemento*/
+    .search {
+        display: flex;
+        background: #fff;
+        border-radius: 25px;
+        padding: 5px;
+        border-color: black;
+        border-style: solid;
+    }
+
+/* redondeo y redimenciono el cuadro de busqueda */
+.search input {
+    border: none;
+    border-radius: 25px;
+    padding: 10px;
+    width: 200px;
+    outline: none;
+}
+
+/* Estilo del icono de lupa */
+.lupa-icon {
+    width: 25px; 
+    height: 25px; 
+    margin: auto;
+}
+
+/* le doy color al boton de busqueda, lo redondeo y establezco el cursor en pointer como se solicita */
+.search button {
+    background-color: #4682B4;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+/* Aplico los efectos al boton, los cuales son un cambio de color a una tonalidad de verde, una iluminacion en tono naranja y aplico los tiempos de transicion */
+.search button:hover {
+    background-color: #4CAF50;
+    box-shadow: 0 0 20px rgba(255, 196, 0, 0.3);
+    transition: background-color 0.1s, color 0.5s, box-shadow 0.3s;
+}
+
+/* ___________________________________Estilos para el logo___________________________________________________*/
+
+/* el icono debe ocupar todo el espacio y se define duracion de animacion */
+.logo {
+    display: inline-block;
+    transition: transform 0.5s;
+    text-align: center;
+}
+
+.logo:hover {
+    background-color: rgba(255, 196, 0, 0.1);
+    box-shadow: 0 0 20px rgba(255, 196, 0, 0.3);
+}
+
+/* Estilo del texto "LF Designs" */
+.logo-text {
+    font-family: "handmade", Arial;
+    font-size: small; 
+    color: white;
+    margin-top: 5px;
+}
+
+/* se establece el tamaño del icono */
+.logo-icon {
+    width: 50px; 
+    height: 50px;
+}
+
+/* Aplico la rotacion programada "giro" al hacer hover en el logo */
+.logo-icon:hover {
+    animation: giro 3s linear infinite;
+}
+
+/* Define la animación de giro de 360 grados a la derecha */
+@keyframes giro {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ___________________________________Estilos para las imagenes de cada seccion___________________________________________________*/
+
+/* Estilo para el contenedor centrado */
+.centered-image {
+    margin-top: 70px;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100%; 
+    width: 100%;
+}
+
+/* Para la imagen solo manipule el tamño, 350 px  de ancho por todo el espacio de alto */
+.centered-image img {
+    max-width: 600px;
+    max-height: 100%; 
+}
+
+/* ___________________________________Container Pokebola*/
+.container-pokebola {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 500px;
+    height: 600px;
+    background-color: #FFFFFF; /* Color de fondo */
+    margin-top: 30px;
+    border-radius: 10px; /* Bordes redondeados */
+    border-color: black;
+    border-style: solid;
+}
+
+.container-pokebola img{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    animation: giro 10s linear infinite;
+}
+
+/* ___________________________________Container ppal______________________________________________*/
+.container-pokemon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 500px;
+    height: 600px;
+    background-color: #FFFFFF; /* Color de fondo */
+    margin-top: 30px;
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+/* ___________________________________Container Pokemon___________________________________________________*/
+.container-pokemon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 500px;
+    height: 600px;
+    background-color: #FFFFFF; /* Color de fondo */
+    margin-top: 30px;
+    border-radius: 10px; /* Bordes redondeados */
+    border-color: black;
+    border-style: solid;
+}
+
+.container-pokemon img{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+}
+
+.pokemon-name {
+    position: absolute;
+    top: 0; /* Coloca el nombre en la parte superior del contenedor */
+    left: 0; /* Coloca el nombre en la esquina superior izquierda del contenedor */
+    background-color: rgba(255, 255, 255, 0.7); /* Fondo semitransparente */
+    padding: 5px; /* Espacio alrededor del nombre */
+    margin: 0; /* Elimina los márgenes predeterminados del nombre */
+    font-weight: bold; /* Texto en negrita */
+  }
