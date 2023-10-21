@@ -47,11 +47,21 @@ document.addEventListener("DOMContentLoaded", function () {
                     result[stat.stat.name] = stat.base_stat;
                     return result;
                 }, {});
+                //Extraigo el peso y alturta del pokemon
+                const pokemonWeight = pokemonData.weight/10
+                const pokemonHeight = pokemonData.height/10
+                //Extraigo los tipos a los que pertenece el pokemon
+                const typesPokemon = pokemonData.types.reduce((result, type) => {
+                    result[type.slot] = type.type.name;
+                    return result;
+                }, {});
                 
                 //Con el id uso la funcion getPokemonDescription para poder extraer la descripcion del pokemon, encontre que hay tantas
                 //descripciones como versiones de juegos asi que solo tome la prmer descripcion que encontrara
                 let descripcionPokemon = await getPokemonDescription(idPokemon);
                 const descripcionPokemonLimpio = descripcionPokemon['flavorText'].replace(/[^\w\s]/g, '');
+                //Tambien extraigo el 'gender_rate' para saber que sexos puede tener el pokemon segun la info oficial 
+                let genderPokemon = descripcionPokemon['genderRatio']
 
                 //Con el id uso la funcion getEvolutions para obtener la cade que me indicara en orden las evoluciones que tiene el pokemon
                 let pokemonEvolutions = await getEvolutions(descripcionPokemon['evolutionChain'])
@@ -62,6 +72,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.log(`Esta es la url de la cadena de evolucion ya consumida ${descripcionPokemon['evolutionChain']}`)
                 console.log(pokemonEvolutions)
                 console.log(pokemonEvolutions.length)
+                console.log(`habilidades del pokemon ${habilidades}`)
+                console.log(habilidades)
+                console.log(`Peso del pokemon ${pokemonWeight}`)
+                console.log(`Tipo pokemon ${typesPokemon}`)
+                console.log(typesPokemon)
+                console.log(`sexo pokemon front ${genderPokemon}`)
+                console.log(genderPokemon)
 
                 //NOMBRE
                 // Crear un nuevo elemento para mostrar el nombre.
@@ -71,24 +88,86 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Agrego el elemento del nombre al contenedor dinámico.
                 containerDinamico.appendChild(nombrePokemonElement);
 
+                //TIPOS
+                let tiposTexto = "";
+                const valoresTipos = Object.values(typesPokemon);
+                
+                for (let i = 0; i < valoresTipos.length; i++) {
+                    if (i > 0) {
+                        tiposTexto += ", ";
+                    }
+                    tiposTexto += valoresTipos[i];
+                }
+
+                // Crear un nuevo contenedor div para mostrar los detalles del Pokémon.
+                const pokemonDetailsContainer = document.createElement('div');
+                pokemonDetailsContainer.classList.add('pokemon-details');
+                
                 //IMAGEN
-                // Crea una imagen para colocar en el nuevo contenedor.
+                // Creo una subcolumna para la imagen del Pokémon.
+                const imageColumn = document.createElement('div');
+                imageColumn.classList.add('pokemon-details-img')
+                // Creo una imagen para la imagen del Pokémon.
                 const pokemonImage = document.createElement('img');
-                pokemonImage.src = imageUrl; // Asegúrate de que imageUrl contenga la URL de la imagen del Pokémon.
+                pokemonImage.src = imageUrl;
                 pokemonImage.alt = 'Imagen del Pokémon';
-                // Agrego la imagen al nuevo contenedor.
-                containerDinamico.appendChild(pokemonImage); 
+                // Agrega la imagen a la subcolumna de la imagen.
+                imageColumn.appendChild(pokemonImage);
+
+                //ALTURA, PESO, TIPO Y SEXOS
+                // Crear una subcolumna para el peso y los tipos.
+                const detailsColumn = document.createElement('div');
+                detailsColumn.classList.add('pokemon-details-text')
+                // Creo un elemento de párrafo para mostrar la altura.
+                const heightText = document.createElement('p');
+                heightText.textContent = `Height: ${pokemonHeight} m`;
+                // Creo un elemento de párrafo para mostrar el peso.
+                const weightText = document.createElement('p');
+                weightText.textContent = `Weight: ${pokemonWeight} kg`;
+                // Crea un elemento de párrafo para mostrar los tipos.
+                const typesText = document.createElement('p');
+                typesText.textContent = `Types: ${tiposTexto}`;
+                // Agregar el peso y los tipos a la subcolumna de detalles.
+                detailsColumn.appendChild(heightText);
+                detailsColumn.appendChild(weightText);
+                detailsColumn.appendChild(typesText);
+
+                let genderIconSrc = '';
+                if (genderPokemon === -1) {
+                    genderIconSrc = 'imgs/no_gender.png'; //género indefinido.
+                } else if (genderPokemon === 0) {
+                    genderIconSrc = 'imgs/male_gender.png'; //masculino.
+                } else if (genderPokemon === 8) {
+                    genderIconSrc = 'imgs/female_gender.png'; //femenino.
+                } else {
+                    genderIconSrc = 'imgs/both_gender.png'; //ambos generos.
+                }
+
+                // Creo el elemento de imagen para mostrar el ícono de género.
+                const genderIcon = document.createElement('img');
+                genderIcon.src = genderIconSrc;
+                genderIcon.alt = 'Género del Pokémon';
+
+                // Agregar el ícono de género al contenedor de detalles (detailsColumn).
+                detailsColumn.appendChild(genderIcon);
+
+                // Agregar las subcolumnas al contenedor de detalles.
+                pokemonDetailsContainer.appendChild(imageColumn);
+                pokemonDetailsContainer.appendChild(detailsColumn);
+                // Agregar el contenedor de detalles al contenedor dinámico.
+                containerDinamico.appendChild(pokemonDetailsContainer);
+                // Determina el género del Pokémon basado en el campo "gender_rate".
+
 
                 //DESCRIPCION
                 const descripcionPokemonElement = document.createElement('div');
-                descripcionPokemonElement.classList.add('stats'); // Aplica la clase CSS
+                descripcionPokemonElement.classList.add('pokemon-description'); // Aplica la clase CSS
                 const descriptionList = document.createElement('p');
                 descriptionList.innerHTML = `<strong>Description: </strong>${descripcionPokemonLimpio}`;
                 descripcionPokemonElement.appendChild(descriptionList);
                 // Agrego la descripcion al contenedor dinámico
                 containerDinamico.appendChild(descripcionPokemonElement);
-
-            
+                            
                 //HABILIDADES
                 //Formateo las habilidades para mostrarlas en el front
                 let habilidadesTexto = "";
@@ -99,7 +178,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     habilidadesTexto += habilidades[i].ability.name;
                 }   
                 const pokemonHabilities = document.createElement('div');
-                pokemonHabilities.classList.add('habilidades')
+                pokemonHabilities.classList.add('abilities')
                 const habilititiesList = document.createElement('p');
                 habilititiesList.innerHTML = `<strong>Abilities: </strong>${habilidadesTexto}`
                 pokemonHabilities.appendChild(habilititiesList)
@@ -107,24 +186,25 @@ document.addEventListener("DOMContentLoaded", function () {
                 containerDinamico.appendChild(pokemonHabilities)
 
                 //STATS
-                const pokemonStatsList = document.createElement('div');
-                pokemonStatsList.classList.add('stats');
-                // Crear un elemento para mostrar los stats
-                const pokemonStatsShow = document.createElement('p');
-                let statsText = '';
-                // Iterar a través de los stats y agregarlos al texto
+                // Crear un elemento para mostrar los stats en forma de lista
+                const containerStats = document.createElement('div');
+                containerStats.classList.add('stats');
+                const pokemonStatsList = document.createElement('ul');
+                containerStats.appendChild(pokemonStatsList);
+                // Iterar a través de los stats y agregarlos a la lista
                 for (const statName in stats) {
                     if (stats.hasOwnProperty(statName)) {
-                        statsText += `${statName}: ${stats[statName]} __ `;
+                        const listItem = document.createElement('li');
+                        listItem.textContent = `${statName}: ${stats[statName]}`;
+                        pokemonStatsList.appendChild(listItem);
                     }
                 }
-                // Elimina la coma final y establece el contenido HTML
-                pokemonStatsShow.innerHTML = statsText.slice(0, -3);
-                pokemonStatsList.appendChild(pokemonStatsShow)
-                // Agrego los stats al contenedor dinámico
-                containerDinamico.appendChild(pokemonStatsList)
+                // Agregar los stats al contenedor dinámico
+                containerDinamico.appendChild(containerStats);
+
 
                 //depuracion necesaria para ir entendiendo y saber como manejar los datos que recibia 
+                console.log(tiposTexto);
                 console.log(stats);
                 console.log(`nombre: ${nombre}`)
                 console.log(`habilidades: ${habilidadesTexto}`)
@@ -154,7 +234,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     // Agregar un boton con el nombre del pokemon a la izquierda del pokemon actual en la cadena de evoluciones
                     if (evolucionesIzquierda.length > 0) {
                         const evolutionFromButton = document.createElement('button');
-                        evolutionFromButton.textContent = `Evolucionó de ${evolucionesIzquierda[evolucionesIzquierda.length - 1]}`;
+                        evolutionFromButton.textContent = `Evolved from ${evolucionesIzquierda[evolucionesIzquierda.length - 1]}`;
                         evolutionFromButton.classList.add('evolution-button');
                         //Agrego el boton evoluciono de 
                         evolutionButtonsContainer.appendChild(evolutionFromButton);
@@ -163,7 +243,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     // Agrega boton "Evoluciona a" si hay un elemento a la derecha del pokemon actual en la cadena de evolucion
                     if (evolucionesDerecha.length > 0) {
                         const evolutionToButton = document.createElement('button');
-                        evolutionToButton.textContent = `Evoluciona a ${evolucionesDerecha[0]}`;
+                        evolutionToButton.textContent = `Evolves to ${evolucionesDerecha[0]}`;
                         evolutionToButton.classList.add('evolution-button');
                         //Agrego el boton evoluciona a 
                         evolutionButtonsContainer.appendChild(evolutionToButton);
@@ -184,12 +264,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
         } catch (error) {
             // Manejo de errores
-            console.error("Error al buscar el Pokémon:", error);
+            console.error("Error when searching for the Pokémon:", error);
 
             // Mostrar el mensaje emergente
             const popup = document.getElementById('popup');
             const popupText = document.getElementById('popup-text');
-            popupText.textContent = 'Error al buscar el Pokémon. Valida el nombre o intenta de nuevo mas tarde.';
+            popupText.textContent = 'Error searching for the Pokémon. Validate the name or try again later.';
             popup.style.display = 'flex';
             popup.style.justifyContent = 'space-between'
 
@@ -203,21 +283,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
     async function getPokemonDescription(id_pokemon){
         try{
-            //Consumo el API de species para obtener descripcion y url de cadena de evolucion
+            // Consumo el API de species para obtener descripción y URL de cadena de evolución
             const response = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${id_pokemon}`);
-            
-            //depuracion necesaria para ir entendiendo y saber como manejar los datos que recibia 
+
+            // Depuración necesaria para ir entendiendo y saber cómo manejar los datos que recibes
             console.log(`La petición a la API se completó correctamente con status: ${response.status}`);
-            console.log(response.data['flavor_text_entries'][0]['flavor_text']);
+
+            // Filtra el primer flavor text en inglés
+            const flavorTextEntries = response.data['flavor_text_entries'];
+            let englishFlavorText = '';
+            for (const entry of flavorTextEntries) {
+                if (entry.language.name === 'en') {
+                    englishFlavorText = entry.flavor_text;
+                    break; // Al encontrar el primer entry en ingles, lo extraigo
+                }
+            }
+
+            //depuracion necesaria para ir entendiendo y saber como manejar los datos que recibia 
+            console.log(`Flavor text en inglés: ${englishFlavorText}`);
             console.log(`URL de la cadena de evolución: ${response.data['evolution_chain']['url']}`);
-            
-            //Extraigo los datos de interes
+            console.log(`Sexo pokemon: ${response.data['gender_rate']}`)
+
+            // Extraigo los datos de interés
             const data = {
-                flavorText: response.data['flavor_text_entries'][0]['flavor_text'],
-                evolutionChain: response.data['evolution_chain']['url']
+                flavorText: englishFlavorText,
+                evolutionChain: response.data['evolution_chain']['url'],
+                genderRatio: response.data['gender_rate']
             };
-            
-            //Los retorno de la funcion
+
+            // Los retorno de la función
             return data;
 
         } catch(error){
@@ -228,7 +322,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Mostrar el mensaje emergente
             const popup = document.getElementById('popup');
             const popupText = document.getElementById('popup-text');
-            popupText.textContent = 'Se ha producido un error interno del servidor, intentar mas tarde.';
+            popupText.textContent = 'An internal server error has occurred, try again later.';
             popup.style.display = 'flex';
             popup.style.justifyContent = 'space-between'
 
@@ -276,7 +370,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Mostrar el mensaje emergente
             const popup = document.getElementById('popup');
             const popupText = document.getElementById('popup-text');
-            popupText.textContent = 'Se ha producido un error interno del servidor, intentar mas tarde.';
+            popupText.textContent = 'An internal server error has occurred, try again later.';
             popup.style.display = 'flex';
             popup.style.justifyContent = 'space-between'
 
@@ -301,7 +395,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Mostrar el mensaje emergente
             const popup = document.getElementById('popup');
             const popupText = document.getElementById('popup-text');
-            popupText.textContent = 'Ingrese un nombre de Pokémon valido.';
+            popupText.textContent = 'Enter a valid Pokémon name.';
             popup.style.display = 'flex';
             popup.style.justifyContent = 'space-between'
 

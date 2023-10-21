@@ -160,19 +160,6 @@ nav a:hover {
     animation: giro 10s linear infinite;
 }
 
-/* ___________________________________Container ppal______________________________________________*/
-.container-pokemon {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 500px;
-    height: 600px;
-    background-color: #FFFFFF; /* Color de fondo */
-    margin-top: 30px;
-    border-radius: 10px; /* Bordes redondeados */
-}
-
 /* ___________________________________Container Pokemon___________________________________________________ */
 .container-pokemon {
     display: flex;
@@ -181,29 +168,22 @@ nav a:hover {
     align-items: center;
     width: 500px;
     height: 100%;
-    /* background-color: rgba(227, 215, 182, 0.7); Fondo con transparencia */
     background-color: white;
-    margin-top: 30px;
     border-radius: 10px;
-    border-color: #4682B4; /* Borde azul */
+    border-color: #4682B4;
     border-style: solid;
-    border-width: 2px; /* Ancho del borde */
-    overflow: hidden;
-    padding: 10px; /* Margen interno para separación */
+    border-width: 2px;
+    padding: 15px;
 }
 
 /* Asegúrate de que todos los elementos de texto no se desborden */
 .container-pokemon p {
     max-width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    /* white-space: nowrap; */
 }
 
 /* Limita el ancho de las imágenes */
 .container-pokemon img {
-    max-width: 50%;
-    height: auto;
+    flex: 1;
 }
 
 /* Alinea el contenido en el centro de su contenedor */
@@ -228,37 +208,42 @@ nav a:hover {
 
 
 /* Estilo para Habilidades */
-.habilidades {
+.pokemon-description {
     width: 100%;
     background-color: #ffe187;
-    /* font-size: large; */
     font-family: "NextBro", Arial;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* background-color: #FFD700; Color amarillo (eléctrico) */
-    border: 2px solid #ffe187; /* Borde amarillo */
-    border-radius: 5px;
-    margin-top: 5px;
+    top: 10px;
+    border-radius: 15px;
+    padding-left: 10px;
 }
 
 /* Estilo para Stats */
-.stats {
-    background-color: #ffe187;
-    /* font-size: large; */
+.abilities {
+    width: 100%;
     font-family: "NextBro", Arial;
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-    align-items: center;
-    /* background-color: #68A090; Color verde (planta) */
-    border: 2px solid #f8d56d; /* Borde azul */
-    border-radius: 5px;
-    margin-top: 5px;
-    /* text-shadow: 1px 1px 1px #000; Sombra suave */
+    background-color: #ffe187;
+    margin-top: 10px;
+    border-radius: 15px;
+    padding-left: 10px;
 }
 
+.stats {
+    width: 100%;
+    font-family: "NextBro", Arial;
+    background-color: #ffe187;
+    margin-top: 10px;
+    border-radius: 15px;
+}
+
+.stats ul {
+    padding: 0%;
+    columns: 2;
+    list-style: none;
+}
+
+.stats li {
+    break-inside: avoid-column;
+}
 
 
 /* ___________________________________evolution button___________________________________________________ */
@@ -376,3 +361,40 @@ nav a:hover {
 .icon-home:hover {
     animation: giro 1s linear infinite;
 } 
+
+ /* ___________________________________EStilos para las caracteristicas que acompañan la imagen del pokemon___________________________________________________ */ 
+
+.pokemon-details{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pokemon-details-img{
+    flex: 4;
+    max-width: 100%;
+}
+
+.pokemon-details-img img{
+    flex: 1;
+    max-width: 100%;
+}
+
+.pokemon-details-text{
+    color: white;
+    padding: 10px;
+    background-color: #4682B4;
+    max-height: 100%;
+    border-radius: 20px;
+    font-size: small;
+    font-family: "NextBro", Arial;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pokemon-details-text img{
+    max-width: 50%;
+}
