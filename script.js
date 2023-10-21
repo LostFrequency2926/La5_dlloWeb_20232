@@ -7,6 +7,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const popupAcceptButton = document.getElementById('popup-accept-button');
     // Definimos el input que recibe el nombre del pokemon
     const searchInput = document.getElementById("searchInput");
+    // texto e icono para ir al home
+    const homeLink = document.getElementById('home-link');
+    const homeText = document.getElementById('home-text');
+    const homeContainer = document.getElementById('container-home')
 
     // Declaramos el container que se encargara de mostrar el contenido dinamico, se declara desde aca para que sea accesible desde cualquier funcion
     const containerDinamico = document.getElementById("container-dinamico");
@@ -167,6 +171,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     // Agregar el contenedor de botones de evolución al contenedor de Pokémon.
                     containerDinamico.appendChild(evolutionButtonsContainer);
+                    
+                    //Hago visible el boton home y su texto para ir a index
+                    homeLink.style.display = 'flex';
+                    homeLink.style.alignItems = 'center'
+                    homeText.style.display = 'block';
+                    homeContainer.style.display = 'flex';
+                    homeContainer.style.alignItems = 'center';
+                    homeContainer.style.flexDirection = 'column';
+                    homeContainer.style.textAlign = 'center';
+
                 }
         } catch (error) {
             // Manejo de errores
@@ -301,7 +315,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //Listener para menjar el evento de click en los botones de evolucion para los pokemons que aplica
     containerDinamico.addEventListener("click", async function (event) {
         if (event.target.classList.contains("evolution-button")) {
-            
+
             // Obtener el nombre del nuevo Pokémon desde el texto del botón
             const newPokemonName = event.target.textContent.split(" ").pop();
 

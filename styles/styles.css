@@ -16,7 +16,7 @@
   }
 
 
-/* ___________________________________Estilos para barra de navegacion solicitada ___________________________________________________*/
+/* ___________________________________disposicion de los elemnetos en el body ___________________________________________________*/
 /* Con este estilo busco que los elementos, logo, nav(enlaces) y busqueda se dispongan de manera horizontal y en el formato space-between */
 body {
     display: flex;
@@ -117,7 +117,7 @@ nav a:hover {
     }
 }
 
-/* ___________________________________Estilos para las imagenes de cada seccion___________________________________________________*/
+/* ___________________________________Estilos para la iamgen principal___________________________________________________*/
 
 /* Estilo para el contenedor centrado */
 .centered-image {
@@ -332,8 +332,47 @@ nav a:hover {
     border-radius: 40px;
 }
 
+ /* ___________________________________Boton y texto para ir a index___________________________________________________ */ 
 
+.home-button-container{
+    display: none;
+    z-index: 1;
+    background-color: #4682B4;
+    width: 110px; /* Ancho deseado */
+    height: 110px; /* Alto deseado */
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+ .home-text{
+    color: white;
+    font-family: "NextBro", Arial;
+    z-index: 1;
+    display: none;
+    text-shadow: -1px -1px 0 #4682B4, 1px -1px 0 #4682B4, -1px 1px 0 #4682B4, 1px 1px 0 #FFD700;
+}
+
+.icon-home-a{
+    text-decoration: none;
+    z-index: 1;
+    position: absolute;
+    display: none;
+    top: 30px;
+    right: 10px;
+    width: 110px; /* Ancho deseado */
+    height: 110px; /* Alto deseado */
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+ 
+.icon-home{
+    z-index: 1;
+    width: 60px;
+    height: 60px;
+}
   
-
-
-  
+.icon-home:hover {
+    animation: giro 10s linear infinite;
+} 
