@@ -115,11 +115,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Iterar a través de los stats y agregarlos al texto
                 for (const statName in stats) {
                     if (stats.hasOwnProperty(statName)) {
-                        statsText += `${statName}: ${stats[statName]}, `;
+                        statsText += `${statName}: ${stats[statName]} __ `;
                     }
                 }
                 // Elimina la coma final y establece el contenido HTML
-                pokemonStatsShow.innerHTML = statsText.slice(0, -2);
+                pokemonStatsShow.innerHTML = statsText.slice(0, -3);
                 pokemonStatsList.appendChild(pokemonStatsShow)
                 // Agrego los stats al contenedor dinámico
                 containerDinamico.appendChild(pokemonStatsList)
