@@ -261,4 +261,30 @@ nav a:hover {
 
 
 
+/* ___________________________________evolution button___________________________________________________ */
+.evolution-buttons {
+    display: flex;
+    justify-content: space-between; /* Para distribuir los botones horizontalmente */
+    align-items: center; /* Para centrar verticalmente los botones */
+    margin-top: 10px; /* Espacio superior */
+    margin: 10px;
+}
+
+.evolution-button {
+    color: white;
+    font-family: "NextBro", Arial;
+    background-color: #4682B4; /* Color de fondo */
+    padding: 10px; /* Espaciado interior */
+    border: solid; /* Sin borde */
+    border-radius: 10px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar el cursor al pasar el mouse */
+}
+
+.evolution-button:hover {
+    background-color: #f8d56d; /* Cambiar el color de fondo al pasar el mouse */
+}
+
+
+
+
   
