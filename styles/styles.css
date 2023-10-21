@@ -284,7 +284,56 @@ nav a:hover {
     background-color: #f8d56d; /* Cambiar el color de fondo al pasar el mouse */
 }
 
+/* ___________________________________POP UP con mensaje de error___________________________________________________ */
+/* Estilo para el botón "Aceptar" */
+.popup-accept-button {
+    color: white;
+    font-family: "NextBro", Arial;
+    background-color: #4682B4;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 10px 0; /* Añade un espacio vertical entre el texto y el botón */
+}
 
+/* Estilo para el popup */
+.popup {
+    z-index: 1;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-text {
+    font-family: "NextBro", Arial;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 4px;
+    font-size: 18px;
+    max-width: 100%; /* Limita el ancho del popup */
+}
+
+/* Contenedor interno para centrar texto y botón verticalmente */
+.container-popup {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 40px;
+}
+
+
+  
 
 
   
