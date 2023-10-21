@@ -21,43 +21,13 @@
 body {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     background-color: #FFF8DC;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 30px;
+    margin: auto;
 }
 
-/* ___________________________________Estilos para el nav___________________________________________________*/
-
-/* Con este estilo busco disponer la lista de enlaces horizontalmente ya que esta se orienta verticalmente por defecto  */
-nav ul {
-    list-style: none;
-    display: flex;
-    margin: 20;
-    padding: 0;
-}
-
-/* como los enlaces quedan pegados le aplico un margin a la derecha a cada elemento de la lista para lograr separacion entre ellos */
-nav li {
-    margin-right: 20px;
-    cursor: pointer;
-}
-
-/* a cada elemento a o link del nav le quitare el subrayado, defino el color blaco y agrego una transicion para el hover la defino en 0.5s */
-nav a {
-    font-family: "Handmade", Arial;/*aplico la fuente customizada, sino es posible cargarla se aplicara el estilo Arial*/
-    font-size: xx-large;
-    text-decoration: none; 
-    color: white; 
-    font-weight: bold;
-    transition: color 1s;
-}
-
-/* Al pasar el mouse por encima de los enlaces los resalto de azul */
-nav a:hover {
-    color: #007bff;
-}
 
 
 /* ___________________________________Estilos para la caja de búsqueda, icono lupa y botón ___________________________________________________*/
