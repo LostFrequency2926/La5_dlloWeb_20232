@@ -388,6 +388,9 @@ document.addEventListener("DOMContentLoaded", function () {
         if (pokemonName) {
             //Funcion principal que desencadena la consulta de la APIs y seteo del container dinamico
             await showPokemonDetails(pokemonName);
+
+            // Limpio el campo de entrada después de la búsqueda
+            searchInput.value = "";
         } else {
             //Mostrar error de campo vacio
             console.error("Campo vacio");
@@ -415,6 +418,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // //Funcion principal que desencadena la consulta de la APIs y seteo del container dinamico
             await showPokemonDetails(newPokemonName);
+
+            // Limpio el campo de entrada después de la búsqueda
+            searchInput.value = "";
+        }
+    });
+
+    // Capruto el evento de enter para que tambien accione el boton search
+    searchInput.addEventListener('keyup', function(event) {
+        if (event.key === 'Enter') {
+        // Si se presiona "Enter", realiza la acción del botón de búsqueda
+        searchButton.click();
         }
     });
 
