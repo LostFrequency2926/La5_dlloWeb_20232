@@ -231,7 +231,7 @@ nav a:hover {
 .habilidades {
     width: 100%;
     background-color: #ffe187;
-    font-size: large;
+    /* font-size: large; */
     font-family: "NextBro", Arial;
     display: flex;
     flex-direction: column;
@@ -246,7 +246,7 @@ nav a:hover {
 /* Estilo para Stats */
 .stats {
     background-color: #ffe187;
-    font-size: large;
+    /* font-size: large; */
     font-family: "NextBro", Arial;
     display: flex;
     flex-direction: row;
@@ -374,5 +374,5 @@ nav a:hover {
 }
   
 .icon-home:hover {
-    animation: giro 10s linear infinite;
+    animation: giro 1s linear infinite;
 } 
