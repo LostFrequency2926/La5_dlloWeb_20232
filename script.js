@@ -59,7 +59,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 //Con el id uso la funcion getPokemonDescription para poder extraer la descripcion del pokemon, encontre que hay tantas
                 //descripciones como versiones de juegos asi que solo tome la prmer descripcion que encontrara
                 let descripcionPokemon = await getPokemonDescription(idPokemon);
-                const descripcionPokemonLimpio = descripcionPokemon['flavorText'].replace(/[^\w\s]/g, '');
+                //Elimino el caracter \f que estaba produciendo errores de visualizacion en el front
+                const descripcionPokemonLimpio = descripcionPokemon['flavorText'].replace(/\f/g, '\n');
                 //Tambien extraigo el 'gender_rate' para saber que sexos puede tener el pokemon segun la info oficial 
                 let genderPokemon = descripcionPokemon['genderRatio']
 
