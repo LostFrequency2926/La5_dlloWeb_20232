@@ -1,61 +1,71 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Página de ejercicios para una actividad evaluativa, creada por Daniel Muñoz, estudiante de Ingeniería de Telecomunicaciones en la Universidad de Antioquia.">
-    <meta name="keywords" content="actividad evaluativa, página web, ejercicio, Daniel Muñoz, Ingeniería de Telecomunicaciones, Universidad de Antioquia">
-    <meta name="author" content="Daniel Muñoz">
-    <meta name="language" content="English">
-    <meta name="generator" content="Visual Studio Code">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Página de ejercicios para una actividad evaluativa, creada por Daniel Muñoz, estudiante de Ingeniería de Telecomunicaciones en la Universidad de Antioquia."
+    />
+    <meta
+      name="keywords"
+      content="actividad evaluativa, página web, ejercicio, Daniel Muñoz, Ingeniería de Telecomunicaciones, Universidad de Antioquia"
+    />
+    <meta name="author" content="Daniel Muñoz" />
+    <meta name="language" content="English" />
+    <meta name="generator" content="Visual Studio Code" />
 
     <link rel="stylesheet" type="text/css" href="styles/styles.css" />
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-    <script src="script.js"></script>  
+    <script src="script.js"></script>
 
     <title>WikiPokemon - Home</title>
-</head>
-<body>
-    <header>
-        
-    </header>
+  </head>
+  <body>
+    <div class="container-ppal-body">
+      <header></header>
 
-    
-        
-        <!-- Crea el enlace y la imagen para el botón de inicio, pero inicialmente ocúltalos -->
-        <a href="index.html" id="home-link" class="icon-home-a">
-            <div id="container-home" class="home-button-container">
-                <img src="imgs/pokebola.png" alt="Botón de inicio" class="icon-home">
-                <p id="home-text" class="home-text">New Capture</p>
-            </div>
-        </a>        
-    
-    
-    <div id="popup" class="popup">
+      <!-- Crea el enlace y la imagen para el botón de inicio, pero inicialmente ocúltalos -->
+      <a href="index.html" id="home-link" class="icon-home-a">
+        <div id="container-home" class="home-button-container">
+          <img
+            src="imgs/pokebola.png"
+            alt="Botón de inicio"
+            class="icon-home"
+          />
+          <p id="home-text" class="home-text">New Capture</p>
+        </div>
+      </a>
+
+      <div id="popup" class="popup">
         <div id="popup-container" class="container-popup">
-            <span id="popup-text" class="popup-text"></span>
-            <button id="popup-accept" class="popup-accept-button">Accept</button>
+          <span id="popup-text" class="popup-text"></span>
+          <button id="popup-accept" class="popup-accept-button">Accept</button>
         </div>
-    </div>    
+      </div>
 
-    <div class="container-ppal">
+      <div class="container-ppal">
+        <div class="centered-image">
+          <img src="imgs/logo.png" alt="Logo Icon" />
+        </div>
 
         <div class="centered-image">
-            <img src="imgs/logo.png" alt="Logo Icon">
+          <div class="search">
+            <input id="searchInput" type="text" placeholder="Search..." />
+            <img src="imgs/lupa.png" alt="Lupa" class="lupa-icon" />
+            <button id="searchButton">Search</button>
+          </div>
         </div>
+      </div>
 
-        <div class="centered-image">
-            <div class="search">
-                <input id="searchInput" type="text" placeholder="Search...">
-                <img src="imgs/lupa.png" alt="Lupa" class="lupa-icon">
-                <button id="searchButton">Search</button>
-            </div>
-        </div>
+      <div id="container-dinamico" class="container-pokebola">
+        <img src="imgs/pokebola.png" alt="Pokeball Icon" />
+      </div>
     </div>
 
-    <div id="container-dinamico" class="container-pokebola">
-        <img src="imgs/pokebola.png" alt="Pokeball Icon">
+    <div class="gallery">
+      <button class="button-move-gallery" id="prevButton">Prev</button>
+      <div class="images"></div>
+      <button class="button-move-gallery" id="nextButton">Next</button>
     </div>
-    
-
-</body>
+  </body>
 </html>

@@ -1,159 +1,167 @@
 /* ___________________________________Importo fuentes personalizadas___________________________________________________*/
 /* Importo una fuente que descargue para estilizar la letra de mis enlaces*/
 @font-face {
-    font-family: 'Handmade';
-    src: url(../fonts/Handmade.otf);
-  }
+  font-family: "Handmade";
+  src: url(../fonts/Handmade.otf);
+}
 
-  @font-face {
-    font-family: 'Pokemon';
-    src: url(../fonts/PokemonSolid.ttf);
-  }
+@font-face {
+  font-family: "Pokemon";
+  src: url(../fonts/PokemonSolid.ttf);
+}
 
-  @font-face {
-    font-family: 'NextBro';
-    src: url(../fonts/TrashTalk.ttf);
-  }
-
+@font-face {
+  font-family: "NextBro";
+  src: url(../fonts/TrashTalk.ttf);
+}
 
 /* ___________________________________disposicion de los elemnetos en el body ___________________________________________________*/
 /* Con este estilo busco que los elementos, logo, nav(enlaces) y busqueda se dispongan de manera horizontal y en el formato space-between */
-body {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: #FFF8DC;
-    padding: 30px;
-    margin: auto;
+.container-ppal-body {
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #fff8dc;
+  padding: 30px;
+  margin: auto;
 }
 
-
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff8dc;
+  justify-content: space-evenly;
+  align-items: center;
+}
 
 /* ___________________________________Estilos para la caja de búsqueda, icono lupa y botón ___________________________________________________*/
 
 /* uso flex para la disposicion de los elementos ademas de redondear y definir color blanco para generar el efecto de que el boton y el cuadro de input estan en un mismo elemento*/
-    .search {
-        display: flex;
-        background: #fff;
-        border-radius: 25px;
-        padding: 5px;
-        border-color: #4682B4;
-        border-style: solid;
-    }
+.search {
+  display: flex;
+  background: #fff;
+  border-radius: 25px;
+  padding: 5px;
+  border-color: #4682b4;
+  border-style: solid;
+}
 
 /* redondeo y redimenciono el cuadro de busqueda */
 .search input {
-    border: none;
-    border-radius: 25px;
-    padding: 10px;
-    width: 200px;
-    outline: none;
+  border: none;
+  border-radius: 25px;
+  padding: 10px;
+  width: 200px;
+  outline: none;
 }
 
 /* Estilo del icono de lupa */
 .lupa-icon {
-    width: 25px; 
-    height: 25px; 
-    margin: auto;
+  width: 25px;
+  height: 25px;
+  margin: auto;
 }
 
 /* le doy color al boton de busqueda, lo redondeo y establezco el cursor en pointer como se solicita */
 .search button {
-    background-color: #4682B4;
-    color: #fff;
-    border: none;
-    border-radius: 25px;
-    padding: 5px 15px;
-    cursor: pointer;
+  background-color: #4682b4;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 5px 15px;
+  cursor: pointer;
 }
 
 /* Aplico los efectos al boton, los cuales son un cambio de color a una tonalidad de verde, una iluminacion en tono naranja y aplico los tiempos de transicion */
 .search button:hover {
-    background-color: #4CAF50;
-    box-shadow: 0 0 20px rgba(255, 196, 0, 0.3);
-    transition: background-color 0.1s, color 0.5s, box-shadow 0.3s;
+  background-color: #4caf50;
+  box-shadow: 0 0 20px rgba(255, 196, 0, 0.3);
+  transition: background-color 0.1s, color 0.5s, box-shadow 0.3s;
 }
 
 /* ___________________________________Animacion de rotacion___________________________________________________*/
 
 /* Define la animación de giro de 360 grados a la derecha */
 @keyframes giro {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* ___________________________________Estilos para la iamgen principal___________________________________________________*/
 
 /* Estilo para el contenedor centrado */
 .centered-image {
-    margin-top: 70px;
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-    height: 100%; 
-    width: 100%;
+  margin-top: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
 /* Para la imagen solo manipule el tamño, 350 px  de ancho por todo el espacio de alto */
 .centered-image img {
-    max-width: 600px;
-    max-height: 100%; 
+  max-width: 600px;
+  max-height: 100%;
 }
 
 /* ___________________________________Container Pokebola*/
 .container-pokebola {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 500px;
-    height: 600px;
-    background-color: #FFFFFF; /* Color de fondo */
-    margin-top: 30px;
-    border-radius: 10px; /* Bordes redondeados */
-    border-color: 4682B4;
-    border-style: solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 500px;
+  height: 600px;
+  background-color: #ffffff; /* Color de fondo */
+  margin: 30px;
+  border-radius: 10px; /* Bordes redondeados */
+  border-color: 4682B4;
+  border-style: solid;
 }
 
-.container-pokebola img{
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 300px;
-    height: 300px;
-    animation: giro 10s linear infinite;
+.container-pokebola img {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+  animation: giro 10s linear infinite;
 }
 
 /* ___________________________________Container Pokemon___________________________________________________ */
 .container-pokemon {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 500px;
-    height: 100%;
-    background-color: white;
-    border-radius: 10px;
-    border-color: #4682B4;
-    border-style: solid;
-    border-width: 2px;
-    padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 500px;
+  height: 100%;
+  background-color: white;
+  border-radius: 10px;
+  border-color: #4682b4;
+  border-style: solid;
+  border-width: 2px;
+  padding: 15px;
+  margin-left: 30px;
+  margin-top: 30px;
 }
 
 /* Asegúrate de que todos los elementos de texto no se desborden */
 .container-pokemon p {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 /* Limita el ancho de las imágenes */
 .container-pokemon img {
-    flex: 1;
+  flex: 1;
 }
 
 /* Alinea el contenido en el centro de su contenedor */
@@ -161,210 +169,248 @@ body {
 .container-pokemon .stats,
 .container-pokemon .pokemon-name,
 .container-pokemon img {
-    text-align: center;
+  text-align: center;
 }
 
 /* Estilo para el nombre del Pokémon */
 .pokemon-name {
-    color: #ffbf00; /* Color amarillo */
-    background-color: #4682B4;
-    font-family: "Pokemon", Arial;
-    font-size: xx-large; /* Tamaño del texto */
-    text-shadow: 2px 2px 2px #000; /* Sombra suave */
-    width: 100%; /* Ocupa todo el espacio horizontal */
-    line-height: 100px; /* Ajusta esto según el tamaño de tu contenedor */
-    border-radius: 30px;
+  color: #ffbf00; /* Color amarillo */
+  background-color: #4682b4;
+  font-family: "Pokemon", Arial;
+  font-size: xx-large; /* Tamaño del texto */
+  text-shadow: 2px 2px 2px #000; /* Sombra suave */
+  width: 100%; /* Ocupa todo el espacio horizontal */
+  line-height: 100px; /* Ajusta esto según el tamaño de tu contenedor */
+  border-radius: 30px;
 }
-
 
 /* Estilo para Habilidades */
 .pokemon-description {
-    width: 100%;
-    background-color: #ffe187;
-    font-family: "NextBro", Arial;
-    top: 10px;
-    border-radius: 15px;
-    padding-left: 10px;
+  width: 100%;
+  background-color: #ffe187;
+  font-family: "NextBro", Arial;
+  top: 10px;
+  border-radius: 15px;
+  padding-left: 10px;
 }
 
 /* Estilo para Stats */
 .abilities {
-    width: 100%;
-    font-family: "NextBro", Arial;
-    background-color: #ffe187;
-    margin-top: 10px;
-    border-radius: 15px;
-    padding-left: 10px;
+  width: 100%;
+  font-family: "NextBro", Arial;
+  background-color: #ffe187;
+  margin-top: 10px;
+  border-radius: 15px;
+  padding-left: 10px;
 }
 
 .stats {
-    width: 100%;
-    font-family: "NextBro", Arial;
-    background-color: #ffe187;
-    margin-top: 10px;
-    border-radius: 15px;
+  width: 100%;
+  font-family: "NextBro", Arial;
+  background-color: #ffe187;
+  margin-top: 10px;
+  border-radius: 15px;
 }
 
 .stats ul {
-    padding: 0%;
-    columns: 2;
-    list-style: none;
+  padding: 0%;
+  columns: 2;
+  list-style: none;
 }
 
 .stats li {
-    break-inside: avoid-column;
+  break-inside: avoid-column;
 }
-
 
 /* ___________________________________evolution button___________________________________________________ */
 .evolution-buttons {
-    display: flex;
-    justify-content: space-between; /* Para distribuir los botones horizontalmente */
-    align-items: center; /* Para centrar verticalmente los botones */
-    margin-top: 10px; /* Espacio superior */
-    margin: 10px;
+  display: flex;
+  justify-content: space-between; /* Para distribuir los botones horizontalmente */
+  align-items: center; /* Para centrar verticalmente los botones */
+  margin-top: 10px; /* Espacio superior */
+  margin: 10px;
 }
 
 .evolution-button {
-    color: white;
-    font-family: "NextBro", Arial;
-    background-color: #4682B4; /* Color de fondo */
-    padding: 10px; /* Espaciado interior */
-    border: solid; /* Sin borde */
-    border-radius: 10px; /* Bordes redondeados */
-    cursor: pointer; /* Cambiar el cursor al pasar el mouse */
+  color: white;
+  font-family: "NextBro", Arial;
+  background-color: #4682b4; /* Color de fondo */
+  padding: 10px; /* Espaciado interior */
+  border: solid; /* Sin borde */
+  border-radius: 10px; /* Bordes redondeados */
+  cursor: pointer; /* Cambiar el cursor al pasar el mouse */
 }
 
 .evolution-button:hover {
-    background-color: #f8d56d; /* Cambiar el color de fondo al pasar el mouse */
+  background-color: #f8d56d; /* Cambiar el color de fondo al pasar el mouse */
 }
 
 /* ___________________________________POP UP con mensaje de error___________________________________________________ */
 /* Estilo para el botón "Aceptar" */
 .popup-accept-button {
-    color: white;
-    font-family: "NextBro", Arial;
-    background-color: #4682B4;
-    padding: 10px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    margin: 10px 0; /* Añade un espacio vertical entre el texto y el botón */
+  color: white;
+  font-family: "NextBro", Arial;
+  background-color: #4682b4;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 10px 0; /* Añade un espacio vertical entre el texto y el botón */
 }
 
 /* Estilo para el popup */
 .popup {
-    z-index: 1;
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    text-align: center;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  z-index: 1;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .popup-text {
-    font-family: "NextBro", Arial;
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 4px;
-    font-size: 18px;
-    max-width: 100%; /* Limita el ancho del popup */
+  font-family: "NextBro", Arial;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 4px;
+  font-size: 18px;
+  max-width: 100%; /* Limita el ancho del popup */
 }
 
 /* Contenedor interno para centrar texto y botón verticalmente */
 .container-popup {
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 40px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 40px;
 }
 
- /* ___________________________________Boton y texto para ir a index___________________________________________________ */ 
+/* ___________________________________Boton y texto para ir a index___________________________________________________ */
 
-.home-button-container{
-    display: none;
-    z-index: 1;
-    background-color: #4682B4;
-    width: 110px; /* Ancho deseado */
-    height: 110px; /* Alto deseado */
-    border-radius: 20px;
-    justify-content: center;
-    align-items: center;
-}
-
- .home-text{
-    color: white;
-    font-family: "NextBro", Arial;
-    z-index: 1;
-    display: none;
-    text-shadow: -1px -1px 0 #4682B4, 1px -1px 0 #4682B4, -1px 1px 0 #4682B4, 1px 1px 0 #FFD700;
+.home-button-container {
+  display: none;
+  z-index: 1;
+  background-color: #4682b4;
+  width: 110px; /* Ancho deseado */
+  height: 110px; /* Alto deseado */
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
 }
 
-.icon-home-a{
-    text-decoration: none;
-    z-index: 1;
-    position: absolute;
-    display: none;
-    top: 30px;
-    right: 10px;
-    width: 110px; /* Ancho deseado */
-    height: 110px; /* Alto deseado */
-    justify-content: center;
-    align-items: center;
-    margin: auto;
+.home-text {
+  color: white;
+  font-family: "NextBro", Arial;
+  z-index: 1;
+  display: none;
+  text-shadow: -1px -1px 0 #4682b4, 1px -1px 0 #4682b4, -1px 1px 0 #4682b4,
+    1px 1px 0 #ffd700;
 }
- 
-.icon-home{
-    z-index: 1;
-    width: 60px;
-    height: 60px;
+
+.icon-home-a {
+  text-decoration: none;
+  z-index: 1;
+  position: absolute;
+  display: none;
+  top: 30px;
+  right: 10px;
+  width: 110px; /* Ancho deseado */
+  height: 110px; /* Alto deseado */
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 }
-  
+
+.icon-home {
+  z-index: 1;
+  width: 60px;
+  height: 60px;
+}
+
 .icon-home:hover {
-    animation: giro 1s linear infinite;
-} 
-
- /* ___________________________________EStilos para las caracteristicas que acompañan la imagen del pokemon___________________________________________________ */ 
-
-.pokemon-details{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  animation: giro 1s linear infinite;
 }
 
-.pokemon-details-img{
-    flex: 4;
-    max-width: 100%;
+/* ___________________________________EStilos para las caracteristicas que acompañan la imagen del pokemon___________________________________________________ */
+
+.pokemon-details {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.pokemon-details-img img{
-    flex: 1;
-    max-width: 100%;
+.pokemon-details-img {
+  flex: 4;
+  max-width: 100%;
 }
 
-.pokemon-details-text{
-    color: white;
-    padding: 10px;
-    background-color: #4682B4;
-    max-height: 100%;
-    border-radius: 20px;
-    font-size: small;
-    font-family: "NextBro", Arial;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.pokemon-details-img img {
+  flex: 1;
+  max-width: 100%;
 }
 
-.pokemon-details-text img{
-    max-width: 50%;
+.pokemon-details-text {
+  color: white;
+  padding: 10px;
+  background-color: #4682b4;
+  max-height: 100%;
+  border-radius: 20px;
+  font-size: small;
+  font-family: "NextBro", Arial;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pokemon-details-text img {
+  max-width: 50%;
+}
+
+.gallery {
+  flex-wrap: wrap;
+  width: auto;
+  background-color: #fff8dc;
+  left: 60px;
+  bottom: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.images {
+  flex-wrap: wrap;
+  display: flex;
+  transition: transform 2s;
+  margin: 10px;
+}
+
+.gallery .images img {
+  max-width: 100px;
+  height: auto;
+}
+
+.gallery .images img:hover {
+  transform: scale(1.3);
+  transition: transform 0.8s;
+}
+
+.button-move-gallery {
+  cursor: pointer;
+  border-radius: 15px;
+  color: #ffbf00; /* Color amarillo */
+  background-color: #4682b4;
+  font-family: "Pokemon", Arial;
+  font-size: xx-large; /* Tamaño del texto */
+  text-shadow: 2px 2px 2px #000; /* Sombra suave */
 }
