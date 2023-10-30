@@ -21,7 +21,7 @@
   flex-wrap: wrap;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   background-color: #fff8dc;
   padding: 30px;
