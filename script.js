@@ -482,6 +482,15 @@ document.addEventListener("DOMContentLoaded", function () {
           homeContainer.style.flexDirection = "column";
           homeContainer.style.textAlign = "center";
         }
+
+        incrementoPokemon = idPokemon - 2;
+        if(incrementoPokemon < 1){
+          prevButton.style.display = 'none';
+          incrementoPokemon = 1;
+        }
+        nextPokemonGroup();
+        
+
       } catch (error) {
         // Manejo de errores
         console.error("Error when searching for the Pokémon:", error);
